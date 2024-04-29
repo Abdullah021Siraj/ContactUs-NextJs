@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import ThreeDButton from "../../comp/3dButton";
 
 export default function ContactForm() {
   const [fullname, setFullname] = useState("");
@@ -90,27 +89,39 @@ export default function ContactForm() {
               <textarea
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
-                className="w-full h-32 px-3 py-2 mt-1 text-gray-800 border rounded-md focus:outline-none focus:border-blue-500"
+                className="w-full h-11 px-3 py-2 mt-1 text-gray-800 border rounded-md focus:outline-none focus:border-blue-500"
                 id="message"
                 placeholder="Type your message here..."
               ></textarea>
-              <ThreeDButton />
+            </div>
+            <div className="flex justify-center">
+              <div
+                class="button w-20 h-10 bg-blue-500 rounded-lg cursor-pointer select-none
+    active:translate-y-2  active:[box-shadow:0_0px_0_0_#1b6ff8,0_0px_0_0_#1b70f841]
+    active:border-b-[0px]
+    transition-all duration-150 [box-shadow:0_10px_0_0_#1b6ff8,0_15px_0_0_#1b70f841]
+    border-b-[1px] border-blue-400
+  "
+              >
+                <span class="flex flex-col justify-center items-center h-full text-white font-bold text-lg ">
+                  <button type="submit">Send</button>
+                </span>
+              </div>
+            </div>
+            <div className="bg-gray-100">
+              {error &&
+                error.map((e, index) => (
+                  <div
+                    key={index}
+                    className={`${
+                      success ? "text-green-800" : "text-red-600"
+                    } px-5 py-2`}
+                  >
+                    {e}
+                  </div>
+                ))}
             </div>
           </form>
-
-          <div className="bg-gray-100 flex flex-col">
-            {error &&
-              error.map((e, index) => (
-                <div
-                  key={index}
-                  className={`${
-                    success ? "text-green-800" : "text-red-600"
-                  } px-5 py-2`}
-                >
-                  {e}
-                </div>
-              ))}
-          </div>
         </div>
       </div>
     </>
