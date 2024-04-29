@@ -51,7 +51,7 @@ export default function ContactForm() {
             className="py-4 mt-4 border-t flex flex-col gap-5 p-6"
           >
             <div className="p-4">
-              <h1 className="text-3xl font-bold">Contact Us</h1>
+              <h1 className="text-3xl font-bold">Contact Me</h1>
               <p>Please fill in the form below</p>
             </div>
             <div className="relative">
