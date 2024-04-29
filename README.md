@@ -41,7 +41,7 @@ To use the contact form feature in your Next.js application:
 
 ## Contact
 
-For any inquiries or issues related to this contact form feature, feel free to contact the author at [author@example.com](freelanceabdullah21@gmail.com).
+For any inquiries or issues related to this contact form feature, feel free to contact me at [freelanceabdullah21@gmail.com](freelanceabdullah21@gmail.com).
 
 ## License
 
