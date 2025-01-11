@@ -40,81 +40,72 @@ export default function ContactForm() {
   };
 
   return (
-    <>
-      <div className="container mx-auto bg-gray-100 rounded-lg overflow-hidden flex justify-center items-center min-h-screen">
-        <div
-          className="relative"
-          style={{ filter: "drop-shadow(3px 3px 5px rgba(0,0,0,0.2))" }}
-        >
-          <form
-            onSubmit={handleSubmit}
-            className="py-4 mt-4 border-t flex flex-col gap-5 p-6"
-          >
-            <div className="p-4">
-              <h1 className="text-3xl font-bold">Contact Me</h1>
-              <p>Please fill in the form below</p>
-            </div>
-            <div className="relative">
-              <label htmlFor="fullname" className="text-gray-700">
-                Full Name
-              </label>
-              <input
-                onChange={(e) => setFullname(e.target.value)}
-                value={fullname}
-                type="text"
-                id="fullname"
-                placeholder="John Doe"
-                className="w-full px-3 py-2 mt-1 text-gray-800 border rounded-md focus:outline-none focus:border-blue-500"
-              />
-            </div>
-
-            <div className="relative">
-              <label htmlFor="email" className="text-gray-700">
-                Email
-              </label>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                type="email"
-                id="email"
-                placeholder="john@gmail.com"
-                className="w-full px-3 py-2 mt-1 text-gray-800 border rounded-md focus:outline-none focus:border-blue-500"
-              />
-            </div>
-
-            <div className="relative">
-              <label htmlFor="message" className="text-gray-700">
-                Your Message
-              </label>
-              <textarea
-                onChange={(e) => setMessage(e.target.value)}
-                value={message}
-                className="w-full h-11 px-3 py-2 mt-1 text-gray-800 border rounded-md focus:outline-none focus:border-blue-500"
-                id="message"
-                placeholder="Type your message here..."
-              ></textarea>
-            </div>
-            <div className="flex justify-center">
-              <button type="submit" className="bg-red-200 p-2 rounded-md">
-                Send
-              </button>
-            </div>
-            <div className="bg-gray-100">
-              {error &&
-                error.map((e, index) => (
-                  <div
-                    key={index}
-                    className={`${
-                      success ? "text-green-800" : "text-red-600"
-                    } px-5 py-2`}
-                  >
-                    {e}
-                  </div>
-                ))}
-            </div>
-          </form>
-        </div>
+    <div className="bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 flex justify-center items-center min-h-screen p-6">
+      <div className="bg-white shadow-lg rounded-xl w-full max-w-md p-6">
+        <h1 className="text-2xl font-bold text-gray-800 text-center mb-4">
+          Contact Me
+        </h1>
+        <p className="text-gray-600 text-center mb-6">
+          Please fill in the form below
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="fullname" className="block text-gray-700 font-medium">
+              Full Name
+            </label>
+            <input
+              onChange={(e) => setFullname(e.target.value)}
+              value={fullname}
+              type="text"
+              id="fullname"
+              placeholder="John Doe"
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className="block text-gray-700 font-medium">
+              Email
+            </label>
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="email"
+              id="email"
+              placeholder="john@gmail.com"
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
+          <div>
+            <label htmlFor="message" className="block text-gray-700 font-medium">
+              Your Message
+            </label>
+            <textarea
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+              id="message"
+              placeholder="Type your message here..."
+              className="w-full px-4 py-2 mt-1 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none h-24"
+            ></textarea>
+          </div>
+          <div className="text-center">
+            <button
+              type="submit"
+              className="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300"
+            >
+              Send Message
+            </button>
+          </div>
+        </form>
+        {error.length > 0 && (
+          <div className="mt-4">
+            {error.map((e, index) => (
+              <p key={index} className={`text-center ${success ? "text-green-600" : "text-red-600"} font-medium`}>
+                {e}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }
